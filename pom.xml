@@ -145,11 +145,7 @@
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-module-mongo</artifactId>
-			<version>3.6.1</version>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-module-db</artifactId>
@@ -159,7 +155,7 @@
 		<!-- Other dependencies -->
 		<dependency>
 			<groupId>org.apache.derby</groupId>
-			<artifactId>derbyLocale_zh_TW</artifactId>
+			<artifactId>derby</artifactId>
 			<version>10.13.1.1</version>
 		</dependency>
 		<dependency>
