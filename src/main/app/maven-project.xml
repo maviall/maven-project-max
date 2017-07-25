@@ -23,7 +23,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 			path="/hello" doc:name="HTTP" allowedMethods="GET" />
 		<set-payload value="#['Hello Maven']" doc:name="Set Payload" />
 	</flow>
-	<flow name="retreiveFlights">
+	<flow name="retrieveFlights">
 		<http:listener config-ref="HTTP_Listener_Configuration"
 			path="/flights" allowedMethods="GET" doc:name="HTTP" />
 		<db:select config-ref="Derby_Configuration" doc:name="Database">
@@ -31,6 +31,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 		</db:select>
 		<json:object-to-json-transformer
 			doc:name="convert object to JSON" />
+        <set-property propertyName="#['Content-Type']" value="#['application/json']" doc:name="Property"/>
 		<jms:outbound-endpoint queue="flights"
 			connector-ref="Active_MQ" doc:name="JMS" />
 	</flow>
